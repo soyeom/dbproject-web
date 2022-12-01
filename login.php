@@ -8,17 +8,17 @@
     $conn = mysqli_connect($host, $user, $pw, $db_name); //db 연결
     
     //login.php에서 입력받은 id, password
-    $username = $_POST['id'];
-    $userpass = $_POST['pw'];
+    $id = $_POST['id'];
+    $password = $_POST['password'];
     
-    $sql = "SELECT * FROM 회원 WHERE 아이디 = '$username' AND 비밀번호 = '$userpass'";
+    $sql = "SELECT * FROM 회원 WHERE 아이디 = '$id' AND 비밀번호 = '$password'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     
     //결과가 존재하면 세션 생성
     if ($row != null) {
-        $_SESSION['username'] = $row['id'];
-        $_SESSION['name'] = $row['name'];
+        $_SESSION['id'] = $row['아이디'];
+        $_SESSION['password'] = $row['비밀번호'];
         echo "<script>location.replace('main2.html');</script>";
         exit;
     }

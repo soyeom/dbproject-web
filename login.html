@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>LOGIN</title>
-        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/signup.css">
     </head>
     <body>
         <div id="wrap">
@@ -14,17 +14,40 @@
                     </span>
                 </h1>
             </div>
-            <form method="post" action="login.php">
-                <div class="idForm">
-                    <input type="text" name="id" class="id" placeholder="아이디">
-                </div>
-                <div class="passForm">
-                    <input type="passwaord" name="pw" class="pw" placeholder="비밀번호">
-                </div>
-                <div class="btn_area">
-                    <button type="submit" class="btn_type btn_primary">
-                        Login
-                    </button>
+
+            <form method="post" id="join_form" action="login.php">
+                <div id="container">
+                    <div id="content">
+                        <div class="join_content">
+                            <div class="row_group">
+                                <div class="join_row">
+                                    <h3 class="join_title">
+                                        <label for="id">아이디</label>
+                                    </h3>
+                                    <span class="id_box id">
+                                        <input type="text" name="id" id="id" class="int">
+                                    </span>
+                                </div>
+
+                                <div class="join_row">
+                                    <h3 class="join_title">
+                                        <label for="password">비밀번호</label>
+                                    </h3>
+                                    <span class="id_box int_pass">
+                                        <input type="password" name="password" id= "password" class="int">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn_area">
+                        <button type="submit" class="btn_type btn_primary">
+                            <span>
+                                로그인
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
