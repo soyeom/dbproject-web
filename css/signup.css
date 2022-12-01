@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+#wrap {
+    width: 100%;
+}
+
+body {
+    position: relative;
+    background: #f5f6f7;
+    display: block;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+body, button, input, select, table, textarea {
+    font-family: "Gowun Dodum", sans-serif;
+    font-size: 12px;
+    -webkit-text-size-adjust: none;
+}
+
+body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+div {
+    display: block;
+}
+
+#top_logo {
+    top: 35px;
+    left: 40px;
+    z-index: 3;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#top_logo {
+    -webkit-text-stroke: 1px #006ef0;
+}
+
+
+
+#top_logo>a{
+    color: #ffffff;
+    -webkit-text-stroke: 1px #006ef0;
+    text-decoration: none;
+}
+
+#header.DonutJoinform {
+    padding-bottom: 20px;
+}
+
+#header {
+    overflow: hidden;
+    padding: 60px 0 54px;
+    box-sizing: border-box;
+}
+
+#container, #footer, #header {
+    max-width: 768px;
+    margin: 0 auto;
+    min-width: 460px;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+form{
+    display: block;
+}
+
+button, input, select, textarea {
+    border-radius: 0;
+    border: none;
+    background: 0 0;
+    appearance: none;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-text-size-adjust: none;
+}
+
+#container {
+    width: auto;
+    max-width: 768px;
+}
+
+#content {
+    width: 460px;
+    margin: 0 auto;
+}
+
+.row_group {
+    overflow: hidden;
+    width: 100%;
+}
+
+.join_title {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+h3 {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+label {
+    cursor: pointer;
+}
+
+.id_box.id, .id_box.id input {
+    background: #ffffff;
+    outline: none;
+}
+
+.id_box, .id_box_disable {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 200rem 10px 14px;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    padding-right: 25px;
+    line-height: 29px;
+    border: none;
+    font-size: 15px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.id_box.int_pass, .id_box.int_pass_check, .id_box.int_pass_check2 {
+    padding-right: 40px;
+}
+
+.id_box, .id_box_disable {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 110px 10px 14px;
+    background: #ffffff;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.id_box .lbl {
+    left: 0;
+    padding: 0 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lbl {
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #8e8e8e;
+    z-index: 9;
+}
+
+.step_txt {
+    display: inline-block;
+    position: absolute;
+    top: 1px;
+    right: 38px;
+    font-size: 12px;
+}
+
+.wa_blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+}
+
+.row_group+.row_group {
+    margin-top: 20px;
+}
+
+.row_group {
+    overflow: hidden;
+    width: 100%;
+}
+
+.box_right_space {
+    padding-right: 14px;
+    box-sizing: border-box;
+}
+
+.join_birthday {
+    padding: 0;
+}
+
+.birth_wrap {
+    display: table;
+    width: 100%;
+}
+
+.birth_dd, .birth_mm, .birth_yy {
+    display: table-cell;
+    table-layout: fixed;
+    width: 147px;
+    vertical-align: middle;
+}
+
+.join_birthday .id_box {
+    padding: 11px 14px;
+}
+
+.birth_mm+.birth_dd, .birth_yy+.birth_mm {
+    padding-left: 10px;
+}
+
+:root .sel {
+    background: #ffffff url("https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif") 100% 50% no-repeat;
+    background-size: 20px 8px;
+}
+
+.sel {
+    width: 100%;
+    height: 29px;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.join_sex {
+    overflow: hidden;
+}
+
+.gender_code, .join_sex {
+    display: block;
+    width: 100%;
+    padding-right: 7px;
+    box-sizing: border-box;
+}
+
+.join_email .terms_choice {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.terms_choice {
+    color: #8e8e8e;
+}
+
+.row_group+.join_mobile {
+    margin-top: 20px;
+}
+
+.join_mobile {
+    position: relative;
+    overflow: hidden;
+}
+
+.join_mobile .country_code {
+    display: block;
+    width: 100%;
+    padding-right: 7px;
+    box-sizing: border-box;
+}
+
+.country_code {
+    position: relative;
+    overflow: hidden;
+}
+
+.join_mobile .int_mobile_area {
+    position: relative;
+    margin-top: 10px;
+    padding: 0 125px 0 0;
+}
+
+.join_mobile .int_mobile {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 15px 10px 14px;
+    vertical-align: top;
+}
+
+.join_mobile .int_mobile_area .btn_verify {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 115px;
+    height: 51px;
+    padding: 18px 0 16px;
+    font-weight: 700;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.btn_verify {
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn_primary {
+    color: #ffffff;
+    border: solid 1px rgba(0,0,0,.08);
+    background-color: #006ef0;
+}
+
+.join_mobile .ps_box_disable, .join_mobile .ps_box_disable input {
+    background: #f7f7f7;
+    outline: 0;
+}
+
+.int_mobile_area+.ps_box_disable {
+    margin-top: 10px;
+}
+
+.input_code {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    background: 0 0;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.btn_area {
+    margin: 3rem 9.5rem;
+}
+
+.btn_type {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#footer {
+    clear: both;
+    margin: 0 auto;
+    padding: 30px 0 15px 0;
+    text-align: center;
+}
+
+#footer * {
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #333333;
+}
+
+#footer address {
+    font: 9px/14px Verdana;
+}
+
+#footer address em {
+    font: 9px Verdana;
+    padding-left: 4px;
+}
+
+:root #footer address .logo {
+    top: 2px;
+}
+
+#footer address .logo {
+    position: relative;
+    width: 63px;
+    height: 12px;
+}
+
+#footer address span {
+    font: 9px/14px Verdana;
+    padding-left: 2px;
+}
+
+#footer address .u_cri {
+    margin: 0;
+    padding-left: 1px;
+    font-weight: bold;
+}
+
+#footer address a {
+    font: bold 9px Verdana;
+}
+
+#footer a {
+    text-decoration: none;
+}
+
+#top_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h_text {
+    font-size: 50px;
+}
+
+#btnSend {
+    line-height: 10px;
+}
+
+#btnSend:active, #btnJoin:active {
+    background-color: #006ef0;
+}

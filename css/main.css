@@ -1,0 +1,96 @@
+* {
+    margin: 0px auto;
+    padding: 0;
+}
+
+li {
+    list-style: none
+}
+
+a {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    text-decoration-line: none;
+}
+
+.menu a {
+    color: #006ef0;
+    font-size: 40px;
+    display: inline-block;
+}
+
+.menu a:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #006ef0;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.menu a:hover:after {
+    transform: scaleX(1);
+}
+
+#logo {
+    margin: 30px;
+}
+
+.menu {
+    margin: 30px;
+    width: 500px;
+    overflow: hidden;
+}
+
+.menu>li {
+    float: left;
+    margin: 30px;
+    text-align: center;
+}
+
+.button {
+    width: 140px;
+    height: 50px;
+    border: 2px solid #006ef0;
+    float: left;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.button a {
+    font-size: 20px;
+    color: #fff;
+    line-height: 50px;
+    transition: all .5s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.eff {
+    width: 140px;
+    height: 50px;
+    border: 70px solid #006ef0;
+    position: absolute;
+    transition: all .5s ease;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.button:hover .eff {
+    border: 0px solid #006ef0;
+}
+
+.button:hover a {
+    color: #006ef0;
+}
+
+.box {
+    border: 5px solid #006ef0;
+    width: 800px;
+    height: 2000px;
+    border-radius: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
