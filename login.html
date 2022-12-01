@@ -3,19 +3,28 @@
     <head>
         <meta charset="utf-8">
         <title>LOGIN</title>
+        <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
         <form method="post" action="login.php" class="loginForm">
-            <h2>Login</h2>
-            <div class="idForm">
-                <input type="text" name="id" class="id" placeholder="Username">
+            <div id="wrap">
+                <div id="header" class="DonutJoinform">
+                    <h1 id="top_logo">
+                        <span class="blind">
+                            <div class="h_text">Login</div>
+                        </span>
+                    </h1>
+                </div>
+                <div class="idForm">
+                    <input type="text" name="id" class="id" placeholder="Username">
+                </div>
+                <div class="passForm">
+                    <input type="passwaord" name="pw" class="pw" placeholder="Password">
+                </div>
+                <button type="submit" class="btn" onclick="button()">
+                    LOGIN
+                </button>
             </div>
-            <div class="passForm">
-                <input type="passwaord" name="pw" class="pw" placeholder="Password">
-            </div>
-            <button type="submit" class="btn" onclick="button()">
-                LOGIN
-            </button>
         </form>
     </body>
 </html>

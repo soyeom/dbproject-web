@@ -1,0 +1,21 @@
+body {
+    position: relative;
+    background: #f5f6f7;
+    display: block;
+}
+
+.h_text {
+    font-size: 50px;
+}
+
+#top_logo {
+    top: 35px;
+    left: 40px;
+    z-index: 3;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #006ef0;
+}

@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+body {
+    position: relative;
+    background: #f5f6f7;
+    display: block;
+}
+
 li {
     list-style: none
 }
@@ -14,9 +20,14 @@ a {
 }
 
 .menu a {
-    color: #006ef0;
     font-size: 40px;
     display: inline-block;
+    z-index: 3;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffffff;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #006ef0;
 }
 
 .menu a:after {
