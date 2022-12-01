@@ -3,6 +3,5 @@
     session_destroy();
 ?>
 <script>
-    alert("로그아웃");
-    location.replace('index.php');
+    location.replace('main.html');
 </script>

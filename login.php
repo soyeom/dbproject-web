@@ -19,7 +19,7 @@
     if ($row != null) {
         $_SESSION['username'] = $row['id'];
         $_SESSION['name'] = $row['name'];
-        echo "<script>location.replace('main.html');</script>";
+        echo "<script>location.replace('main2.html');</script>";
         exit;
     }
     
