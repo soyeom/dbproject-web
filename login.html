@@ -6,25 +6,37 @@
         <link rel="stylesheet" href="css/login.css">
     </head>
     <body>
-        <form method="post" action="login.php" class="loginForm">
-            <div id="wrap">
-                <div id="header" class="DonutJoinform">
-                    <h1 id="top_logo">
-                        <span class="blind">
-                            <div class="h_text">Login</div>
-                        </span>
-                    </h1>
-                </div>
+        <div id="wrap">
+            <div id="header" class="DonutJoinform">
+                <h1 id="top_logo">
+                    <span class="blind">
+                        <div class="h_text">Login</div>
+                    </span>
+                </h1>
+            </div>
+            <form method="post" action="login.php">
                 <div class="idForm">
-                    <input type="text" name="id" class="id" placeholder="Username">
+                    <input type="text" name="id" class="id" placeholder="아이디">
                 </div>
                 <div class="passForm">
-                    <input type="passwaord" name="pw" class="pw" placeholder="Password">
+                    <input type="passwaord" name="pw" class="pw" placeholder="비밀번호">
                 </div>
-                <button type="submit" class="btn" onclick="button()">
-                    LOGIN
-                </button>
-            </div>
-        </form>
+                <div class="btn_area">
+                    <button type="submit" class="btn_type btn_primary">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <br></br>
+
+        <div id="footer">
+            <address>
+                <em class="copy">컴퓨터융합소프트웨어학과</em>
+                <em class="u_cri">박소연, 조정인</em>
+            </address>
+        </div>
+
     </body>
 </html>

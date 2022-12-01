@@ -138,7 +138,6 @@ label {
     border: solid 1px #dadada;
     padding: 10px 200rem 10px 14px;
     box-sizing: border-box;
-    vertical-align: top;
 }
 
 .int {
@@ -167,7 +166,6 @@ label {
     padding: 10px 110px 10px 14px;
     background: #ffffff;
     box-sizing: border-box;
-    vertical-align: top;
 }
 
 .id_box .lbl {
@@ -257,7 +255,6 @@ label {
     color: #000000;
     border: none;
     border-radius: 0;
-    -webkit-appearance: none;
 }
 
 option {
