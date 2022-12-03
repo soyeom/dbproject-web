@@ -2,7 +2,7 @@
     $conn = mysqli_connect("localhost", "root", "", "test");
 
     $id = $_POST['id'];
-    $passwd = $_POST['password'];
+    $passwd = md5($_POST['password']);
     $age = $_POST['age'];
     $mbti = $_POST['mbti'];
     $gender = $_POST['gender'];

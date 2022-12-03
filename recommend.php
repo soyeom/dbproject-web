@@ -6,6 +6,11 @@
         <link href="css/main.css" type="text/css" rel="stylesheet">
         <link href="css/recommend.css" type="text/css" rel="stylesheet">
         <?php
+            session_start();
+
+            $id = $_SESSION["id"];
+            $password = $_SESSION["password"];
+
             $conn = mysqli_connect("localhost", "root", "", "test");
             
             $sql = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
@@ -20,14 +25,14 @@
         <table>
             <tr>
                 <td>
-                    <a href="main.html">
+                    <a href="main.php">
                         <img src="img/logo.png" id="logo" href="#">
                     </a>
                 </td>
                 <td>
                     <ul class="menu">
                         <li>
-                            <a href="main.html" id="main">Main</a>
+                            <a href="main.php" id="main">Main</a>
                         </li>
                         <li>
                             <a href="recommend.html" id="recommend">Recommend</a>
@@ -38,6 +43,12 @@
                     <div class="button">
                         <div class="eff"></div>
                         <a href="login.html">Login</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="button">
+                        <div class="eff"></div>
+                        <a href="logout.php">Logout</a>
                     </div>
                 </td>
                 <td>
@@ -54,9 +65,11 @@
                     <div class="usertext">
                         <a>
                             <?php
-                                $sql_user = "select 아이디 from 회원;";
+                                $sql_user = "select 아이디 from 회원 WHERE 아이디 = '$id';";
+
                                 $result_user = mysqli_query($conn, $sql_user);
                                 $user_id = mysqli_fetch_row($result_user);
+
                                 echo("$user_id[0]");
                             ?>
                         </a>

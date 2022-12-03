@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $id = $_SESSION["id"];
+    $password = $_SESSION["password"];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,9 +24,15 @@
                             <a href="main.html" id="main">Main</a>
                         </li>
                         <li>
-                            <a href="recommend.html" id="recommend">Recommend</a>
+                            <a href="recommend.php" id="recommend">Recommend</a>
                         </li>
                     </ul>
+                </td>
+                <td>
+                    <div class="button">
+                        <div class="eff"></div>
+                        <a href="login.html">Login</a>
+                    </div>
                 </td>
                 <td>
                     <div class="button">
