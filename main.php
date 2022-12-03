@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    $id = $_SESSION["id"];
-    $password = $_SESSION["password"];
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,18 +23,22 @@
                         </li>
                     </ul>
                 </td>
-                <td>
-                    <div class="button">
-                        <div class="eff"></div>
-                        <a href="login.html">Login</a>
-                    </div>
-                </td>
-                <td>
-                    <div class="button">
-                        <div class="eff"></div>
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </td>
+                <?php
+                    include 'authorize.php';
+                    
+                    if($login){
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='logout.php'>Logout</a>");
+                        echo("</div></td>");
+                    }
+                    else{
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='login.html'>Login</a>");
+                        echo("</div></td>");
+                    }
+                ?>
                 <td>
                     <div class="button">
                         <div class="eff"></div>

@@ -6,11 +6,6 @@
         <link href="css/main.css" type="text/css" rel="stylesheet">
         <link href="css/recommend.css" type="text/css" rel="stylesheet">
         <?php
-            session_start();
-
-            $id = $_SESSION["id"];
-            $password = $_SESSION["password"];
-
             $conn = mysqli_connect("localhost", "root", "", "test");
             
             $sql = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
@@ -39,18 +34,22 @@
                         </li>
                     </ul>
                 </td>
-                <td>
-                    <div class="button">
-                        <div class="eff"></div>
-                        <a href="login.html">Login</a>
-                    </div>
-                </td>
-                <td>
-                    <div class="button">
-                        <div class="eff"></div>
-                        <a href="logout.php">Logout</a>
-                    </div>
-                </td>
+                <?php
+                    include 'authorize.php';
+                    
+                    if($login){
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='logout.php'>Logout</a>");
+                        echo("</div></td>");
+                    }
+                    else{
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='login.html'>Login</a>");
+                        echo("</div></td>");
+                    }
+                ?>
                 <td>
                     <div class="button">
                         <div class="eff"></div>
@@ -65,7 +64,7 @@
                     <div class="usertext">
                         <a>
                             <?php
-                                $sql_user = "select 아이디 from 회원 WHERE 아이디 = '$id';";
+                                $sql_user = "select 아이디 from 회원 WHERE 아이디 = $id;";
 
                                 $result_user = mysqli_query($conn, $sql_user);
                                 $user_id = mysqli_fetch_row($result_user);
