@@ -64,15 +64,21 @@
                     <div class="usertext">
                         <a>
                             <?php
-                                $sql_user = "select 아이디 from 회원 WHERE 아이디 = $id;";
+                                if($login){
+                                    $id = $_SESSION['id'];
+                                    $sql_user = "select 아이디 from 회원 WHERE 아이디 = '$id';";
 
-                                $result_user = mysqli_query($conn, $sql_user);
-                                $user_id = mysqli_fetch_row($result_user);
+                                    $result_user = mysqli_query($conn, $sql_user);
+                                    $user_id = mysqli_fetch_row($result_user);
 
-                                echo("$user_id[0]");
+                                    echo("$user_id[0]");
+                                }
+                                else{
+                                    
+                                }
                             ?>
+                            님의 여행지 추천 리스트
                         </a>
-                        <a> 님의 여행지 추천 리스트</a>
                     </div>
                 </tr>
                 <tr>

@@ -98,9 +98,10 @@ a {
 
 .box {
     border: 5px solid #006ef0;
-    width: 800px;
-    height: 2000px;
+    width: 50rem;
+    height: 75rem;
     border-radius: 20px;
+    overflow: auto;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
