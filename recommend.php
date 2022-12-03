@@ -85,15 +85,9 @@
                     <div class="select">
                         <a>추천</a>
                     </div>
-                    <div class="selectButt">
-                        <a href="#">성별</a>
-                    </div>
-                    <div class="selectButt">
-                        <a href="#">나이</a>
-                    </div>
-                    <div class="selectButt">
-                        <a href="#">MBTI</a>
-                    </div>
+                    <button type="submit" class="selectButt">성별</button>
+                    <button type="submit" class="selectButt">나이</button>
+                    <button type="submit" class="selectButt">MBTI</button>
                 </tr>
                 <div class="line"></div>
                 <?php

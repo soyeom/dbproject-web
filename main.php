@@ -25,7 +25,7 @@
                 </td>
                 <?php
                     include 'authorize.php';
-                    
+
                     if($login){
                         echo("<td><div class='button'>");
                         echo("<div class='eff'></div>
