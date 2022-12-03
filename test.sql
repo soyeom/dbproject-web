@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-12-03 13:25
+-- 생성 시간: 22-12-03 19:13
 -- 서버 버전: 10.4.24-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -71,7 +71,6 @@ CREATE TABLE `리뷰` (
   `리뷰번호` int(11) NOT NULL,
   `리뷰아이디` varchar(10) DEFAULT NULL,
   `리뷰여행지명` varchar(20) DEFAULT NULL,
-  `리뷰내용` varchar(100) DEFAULT NULL,
   `평점` int(11) NOT NULL,
   `작성일자` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=euckr;
@@ -123,7 +122,7 @@ CREATE TABLE `회원` (
 --
 
 INSERT INTO `회원` (`아이디`, `비밀번호`, `나이`, `mbti`, `성별`) VALUES
-('yuchem2', '0421', 24, 'Infj', 'M');
+('wwd0203', '436302a7f9a7389d1a68', 23, 'Entj', 'F');
 
 --
 -- 덤프된 테이블의 인덱스
