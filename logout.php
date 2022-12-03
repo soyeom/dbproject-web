@@ -3,5 +3,5 @@
     session_destroy();
 ?>
 <script>
-    location.replace('main.html');
+    location.replace('main.php');
 </script>
