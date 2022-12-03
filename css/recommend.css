@@ -101,3 +101,23 @@ a {
     font-size: 17px;
     font-family: "Gowun Dodum", sans-serif;
 }
+
+.TrafficArea {
+    margin: 0px auto;
+    float: left;
+}
+
+.AttLine {
+    margin: 10px auto;
+    margin-left: 25px;
+    margin-right: 25px;
+    float: left;
+    width: 750px;
+    border-bottom: 1px solid #006ef0;
+}
+
+.textReady {
+    text-align: center;
+    margin: 0px auto;
+    
+}

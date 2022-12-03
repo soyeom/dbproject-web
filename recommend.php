@@ -8,13 +8,56 @@
         <?php
             $conn = mysqli_connect("localhost", "root", "", "test");
             
-            $sql = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
-            $result = mysqli_query($conn, $sql);
-            if (!$result) {
+            $sql_Att = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
+            $result_Att = mysqli_query($conn, $sql_Att);
+            if (!$result_Att) {
+                echo("<script>alert('error!')</script>");
+                exit;
+            }
+
+            $sql_Tr = "select 출발시간, 도착시간, 출발장소, 도착장소, 교통수단 from 교통;";
+            $result_Tr = mysqli_query($conn, $sql_Tr);
+            if (!$result_Tr) {
                 echo("<script>alert('error!')</script>");
                 exit;
             }
         ?>
+        <script type="text/javascript">
+            function getShow(num) {
+                var traffic = document.getElementById('Traffic_' + num);
+                if (traffic.style.display == 'none') {
+                    traffic.style.display = 'block';
+                }
+                else {
+                    traffic.style.display = 'none';
+                }
+            }
+
+            function getTrain(num) {
+                var train = document.getElementById('train_' + num);
+                if (train.style.display == 'none') {
+                    train.style.display = 'block';
+                }
+                else {
+                    train.style.display = 'none';
+                }
+            }
+
+            function getBus(num) {
+                var bus = document.getElementById('bus_' + num);
+                if (bus.style.display == 'none') {
+                    bus.style.display = 'block';
+                }
+                else {
+                    bus.style.display = 'none';
+                }
+            }
+
+            function NotService() {
+                alert('서비스 준비중입니다.');
+            }
+
+        </script>
     </head>
     <body>
         <table>
@@ -94,17 +137,36 @@
                 </tr>
                 <div class="line"></div>
                 <?php
-                    while($row = mysqli_fetch_row($result))
+                    $num = 0;
+                    while($row_Att = mysqli_fetch_row($result_Att))
                     {
-                        echo("<tr class='Att'> <td> <div class='AttCrop'> <img src='$row[5]' class='AttImg'> </div> </td>");
-                        echo("<td> <div class='AttName'> <a href='#'>");
-                        echo("$row[0]");
+                        echo("<tr class='Att'> <td> <div class='AttCrop'>
+                        <img src='$row_Att[5]' class='AttImg'> </div> </td>");
+                        echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
+                        echo("$row_Att[0]");
                         echo("</a> </div> <div class='AttInfo'><a>");
-                        echo("지역 - $row[1] $row[2] <br>");
-                        echo("$row[3] | 추천 계절 - $row[4]");
-                        echo("</a> </div> </td> </tr>");
+                        echo("지역 - $row_Att[1] $row_Att[2] <br>");
+                        echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
+                        echo("</a> </div> </td> <tr> <td colspan='2'>
+                        <div class='TrafficArea' id='Traffic_$num' style='display:none;'>
+                        <div class='AttLine'></div>
+                        <div class='select'><a>이동 수단</a></div>
+                        <div class='selectButt'> <a href='#;' onclick='getTrain($num)'>기차</a> </div>
+                        <div class='selectButt'> <a href='#;' onclick='getBus($num)'>버스</a> </div>
+                        <div class='selectButt'> <a href='#;' onclick='NotService()'>비행기</a> </div>
+                        <div class='selectButt'> <a href='#;' onclick='NotService()'>자동차</a> </div>
+                        </div> </td> </tr> </tr>
+                        <tr> <td colspan='2'> <div class='train' id='train_$num' style='display:none;'>
+                        <a id='t_$num'>train</a>
+                        </div> </tr> </td>
+                        <tr> <td colspan='2'> <div class='bus' id='bus_$num' style='display:none;'>
+                        <a id='b_$num'>bus</a>
+                        </div> </tr> </td>
+                        <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
+                        $num++;
                     }
                 ?>
+                
             </table>
         </div>
     </body>
