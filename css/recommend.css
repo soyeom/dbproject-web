@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
 .usertext {
     margin: 10px auto;
     margin-left: 30px;
@@ -10,10 +7,7 @@
 
 .usertext a {
     font-size: 20px;
-<<<<<<< HEAD
-=======
     font-family: "Gowun Dodum", sans-serif;
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
 }
 
 .select {
@@ -25,10 +19,7 @@
 
 .select a {
     font-size: 23px;
-<<<<<<< HEAD
-=======
     font-family: "Gowun Dodum", sans-serif;
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
     text-align: center;
 }
     
@@ -56,10 +47,6 @@
 
 .selectButt a {
     font-size: 20px;
-<<<<<<< HEAD
-}
-
-=======
     font-family: "Gowun Dodum", sans-serif;
 }
 
@@ -73,7 +60,6 @@
 
 
 
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
 .AttShow {
     margin: 0px auto;
     float: left;
@@ -107,17 +93,11 @@ a {
 .AttName a {
     font-weight: bold;
     font-size: 20px;
-<<<<<<< HEAD
-=======
     font-family: "Gowun Dodum", sans-serif;
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
 }
 
 .AttInfo a {
     font-weight: normal;
     font-size: 17px;
-<<<<<<< HEAD
-=======
     font-family: "Gowun Dodum", sans-serif;
->>>>>>> 4735e4fca247b6c9f25e7c78e07bfebc64503f94
 }
