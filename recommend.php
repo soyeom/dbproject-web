@@ -16,12 +16,27 @@
                 exit;
             }
 
-            $sql_Tr = "select 출발시간, 도착시간, 출발장소, 도착장소, 교통수단 from 교통;";
+            $sql_Tr = "select 출발시간, 도착시간, 출발장소, 도착장소 from 교통 where 교통수단 = '기차';";
             $result_Tr = mysqli_query($conn, $sql_Tr);
             if (!$result_Tr) {
                 echo("<script>alert('error!')</script>");
                 exit;
             }
+
+            $total_records_Tr = mysqli_num_rows($result_Tr);
+            $total_fields_Tr = mysqli_num_fields($result_Tr);
+
+            
+            $sql_Bus = "select 출발시간, 도착시간, 출발장소, 도착장소 from 교통 where 교통수단 = '버스';";
+            $result_Bus = mysqli_query($conn, $sql_Bus);
+            if (!$result_Bus) {
+                echo("<script>alert('error!')</script>");
+                exit;
+            }
+
+            $total_records_Bus = mysqli_num_rows($result_Bus);
+            $total_fields_Bus = mysqli_num_fields($result_Bus);
+
         ?>
         <script type="text/javascript">
             function getShow(num) {
@@ -151,12 +166,30 @@
                         <div class='selectButt'> <a href='#;' onclick='NotService()'>비행기</a> </div>
                         <div class='selectButt'> <a href='#;' onclick='NotService()'>자동차</a> </div>
                         </div> </td> </tr> </tr>
-                        <tr> <td colspan='2'> <div class='train' id='train_$num' style='display:none;'>
-                        <a id='t_$num'>train</a>
-                        </div> </tr> </td>
-                        <tr> <td colspan='2'> <div class='bus' id='bus_$num' style='display:none;'>
-                        <a id='b_$num'>bus</a>
-                        </div> </tr> </td>
+                        <tr> <td colspan='2'> <div class='train' id='train_$num' style='display:none;'>");
+                        echo("<table width=600 border=1 cellpadding=10>");
+                        while($row_Tr = mysqli_fetch_row($result_Tr))
+                        {
+                            echo "<tr>";
+                            for($i = 0; $i < $total_fields_Tr; $i++) {
+                                echo "<td align=center> $row_Tr[$i] </td>";
+                            }
+                            echo "</tr>";
+                        }
+                        echo("</table>");
+                        echo("</div> </tr> </td>
+                        <tr> <td colspan='2'> <div class='bus' id='bus_$num' style='display:none;'>");
+                        echo("<table width=600 border=1 cellpadding=10>");
+                        while($row_Bus = mysqli_fetch_row($result_Bus))
+                        {
+                            echo "<tr>";
+                            for($i = 0; $i < $total_fields_Bus; $i++) {
+                                echo "<td align=center> $row_Bus[$i] </td>";
+                            }
+                            echo "</tr>";
+                        }
+                        echo("</table>");
+                        echo("</div> </tr> </td>
                         <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
                         $num++;
                     }

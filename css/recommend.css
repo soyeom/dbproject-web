@@ -54,7 +54,6 @@
     color: #fff;
 }
 
-
 .AttShow {
     margin: 0px auto;
     float: left;
@@ -109,9 +108,4 @@ a {
     float: left;
     width: 750px;
     border-bottom: 1px solid #006ef0;
-}
-
-.textReady {
-    text-align: center;
-    margin: 0px auto;
 }
