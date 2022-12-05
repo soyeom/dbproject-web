@@ -74,7 +74,7 @@
                             <a href="main.php" id="main">Main</a>
                         </li>
                         <li>
-                            <a href="recommend.html" id="recommend">Recommend</a>
+                            <a href="recommend.php" id="recommend">Recommend</a>
                         </li>
                     </ul>
                 </td>
