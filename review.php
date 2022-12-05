@@ -132,8 +132,12 @@
                             <div class='AttLine'></div>");
 
                             if($row_Review){
-                                echo("<div class='select'><a>평점: </a></div>");
-
+                                echo("<div class='select'><a>평점: $row_Review[0]</a></div>");
+                                echo("<button type='submit' class='selectButt'>수정</button></form>
+                                <form action='delete_review.php' method='post'>
+                                <input type='hidden' name='id' value='$user_id[0]'>
+                                <input type='hidden' name='att' value='$row_Att[0]'>
+                                <button type='submit' class='selectButt'>삭제</button></form>");
                                 echo("<tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
                             }
                             else{
@@ -145,6 +149,8 @@
                                 <option value='5'>3</option>
                                 <option value='5'>2</option>
                                 <option value='5'>1</option> </select>
+                                <input type='hidden' name='id' value='$user_id[0]'>
+                                <input type='hidden' name='att' value='$row_Att[0]'>
                                 <button type='submit' class='selectButt'>등록</button></form>
                                 <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
                             }
