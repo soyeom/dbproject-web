@@ -9,14 +9,14 @@
         <table>
             <tr>
                 <td>
-                    <a href="main.html">
+                    <a href="main.php">
                         <img src="img/logo.png" id="logo" href="#">
                     </a>
                 </td>
                 <td>
                     <ul class="menu">
                         <li>
-                            <a href="main.html" id="main">Main</a>
+                            <a href="main.php" id="main">Main</a>
                         </li>
                         <li>
                             <a href="recommend.php" id="recommend">Recommend</a>
