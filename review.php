@@ -75,7 +75,7 @@
                                     echo("$user_id[0]");
                                 }
                                 else{
-                                    
+                                    echo("<script>location.replace('login.html')</script>");
                                 }
                             ?>
                             님의 여행지 리뷰
@@ -91,13 +91,18 @@
                 </tr>
                 <div class="line"></div>
                 <?php
-                    while($row = mysqli_fetch_row($result))
-                    {
-                        echo("<tr class='Att'>");
-                        echo("<td> <div class='AttName'> <a>$row[0]</a></div>");
-                        echo("<div class='AttInfo'><a>여행지명: $row[1] <br>");
-                        echo("평점: $row[2] <br> 작성일자: $row[3]");
-                        echo("</a> </div> </td> </tr>");
+                    if($login){
+                        while($row = mysqli_fetch_row($result))
+                        {
+                            echo("<tr class='Att'>");
+                            echo("<td> <div class='AttName'> <a>$row[0]</a></div>");
+                            echo("<div class='AttInfo'><a>여행지명: $row[1] <br>");
+                            echo("평점: $row[2] <br> 작성일자: $row[3]");
+                            echo("</a> </div> </td> </tr>");
+                        }
+                    }
+                    else{
+                        echo("<script>location.replace('login.html')</script>");
                     }
                 ?>
             </table>
