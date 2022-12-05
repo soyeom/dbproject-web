@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-12-03 19:13
+-- 생성 시간: 22-12-05 19:45
 -- 서버 버전: 10.4.24-MariaDB
 -- PHP 버전: 8.1.6
 
@@ -72,8 +72,15 @@ CREATE TABLE `리뷰` (
   `리뷰아이디` varchar(10) DEFAULT NULL,
   `리뷰여행지명` varchar(20) DEFAULT NULL,
   `평점` int(11) NOT NULL,
-  `작성일자` datetime DEFAULT NULL
+  `작성일자` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=euckr;
+
+--
+-- 테이블의 덤프 데이터 `리뷰`
+--
+
+INSERT INTO `리뷰` (`리뷰번호`, `리뷰아이디`, `리뷰여행지명`, `평점`, `작성일자`) VALUES
+(2, 'wwd0203', '경주월드', 5, '2022-12-06 03:15:54');
 
 -- --------------------------------------------------------
 
@@ -122,7 +129,7 @@ CREATE TABLE `회원` (
 --
 
 INSERT INTO `회원` (`아이디`, `비밀번호`, `나이`, `mbti`, `성별`) VALUES
-('wwd0203', '436302a7f9a7389d1a68', 23, 'Entj', 'F');
+('wwd0203', '0403', 23, 'Entp', 'F');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -153,6 +160,16 @@ ALTER TABLE `여행지`
 --
 ALTER TABLE `회원`
   ADD PRIMARY KEY (`아이디`);
+
+--
+-- 덤프된 테이블의 AUTO_INCREMENT
+--
+
+--
+-- 테이블의 AUTO_INCREMENT `리뷰`
+--
+ALTER TABLE `리뷰`
+  MODIFY `리뷰번호` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 덤프된 테이블의 제약사항
