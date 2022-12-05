@@ -58,19 +58,19 @@
                                     $id = $_SESSION['id'];
 
                                     $conn = mysqli_connect("localhost", "root", "", "test");
-                
-                                    $sql = "select 리뷰번호, 리뷰여행지명, 평점, 작성일자 from 리뷰 where 리뷰아이디 = '$id';";
-                                    $result = mysqli_query($conn, $sql);
 
-                                    if (!$result) {
+                                    $sql_Att = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
+                                    $result_Att = mysqli_query($conn, $sql_Att);
+
+                                    if (!$result_Att) {
                                         echo("<script>alert('error!')</script>");
                                         exit;
                                     }
 
-                                    $sql_user = "select 아이디 from 회원 WHERE 아이디 = '$id';";
+                                    $sql_User = "select 아이디 from 회원 WHERE 아이디 = '$id';";
 
-                                    $result_user = mysqli_query($conn, $sql_user);
-                                    $user_id = mysqli_fetch_row($result_user);
+                                    $result_User = mysqli_query($conn, $sql_User);
+                                    $user_id = mysqli_fetch_row($result_User);
 
                                     echo("$user_id[0]");
                                 }
@@ -80,25 +80,74 @@
                             ?>
                             님의 여행지 리뷰
                         </a>
+                            <script type="text/javascript">
+                                function getShow(num) {
+                                    var traffic = document.getElementById('Traffic_' + num);
+                                    if (traffic.style.display == 'none') {
+                                        traffic.style.display = 'block';
+                                    }
+                                    else {
+                                        traffic.style.display = 'none';
+                                    }
+                                }
+
+                                function getTrain(num) {
+                                    var train = document.getElementById('train_' + num);
+                                    if (train.style.display == 'none') {
+                                        train.style.display = 'block';
+                                    }
+                                    else {
+                                        train.style.display = 'none';
+                                    }
+                                }
+                            </script>
                     </div>
                 </tr>
                 <tr>
                     <div class="select">
                         <a>여행지</a>
                     </div>
-                    <input type="text" class="select">
+                    <input type="text" class="select" style="margin-top: 18px;">
                     <button type="submit" class="selectButt">검색하기</button>
                 </tr>
                 <div class="line"></div>
                 <?php
                     if($login){
-                        while($row = mysqli_fetch_row($result))
+                        while($row_Att = mysqli_fetch_row($result_Att))
                         {
+                            $sql_Review = "select 평점 from 리뷰 where 리뷰아이디 = '$id' and 리뷰여행지명 = '$row_Att[0]';";
+                            $result_Review = mysqli_query($conn, $sql_Review);
+                            $row_Review = mysqli_fetch_row($result_Review);
+
+                            echo("<tr class='Att'> <td> <div class='AttCrop'>
+                            <img src='$row_Att[5]' class='AttImg'> </div> </td>");
+                            echo("<td> <div class='AttName'> <a href='#;' onclick='getShow(0)'>");
+                            echo("$row_Att[0]");
+                            echo("</a> </div> <div class='AttInfo'><a>");
+                            echo("지역 - $row_Att[1] $row_Att[2] <br>");
+                            echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
                             echo("<tr class='Att'>");
-                            echo("<td> <div class='AttName'> <a>$row[0]</a></div>");
-                            echo("<div class='AttInfo'><a>여행지명: $row[1] <br>");
-                            echo("평점: $row[2] <br> 작성일자: $row[3]");
-                            echo("</a> </div> </td> </tr>");
+                            echo("</a> </div> </td> </tr> <td colspan='2'>
+                            <div class='TrafficArea' id='Traffic_0' style='display:none;'>
+                            <div class='AttLine'></div>");
+
+                            if($row_Review){
+                                echo("<div class='select'><a>평점: </a></div>");
+
+                                echo("<tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
+                            }
+                            else{
+                                echo("<div class='select'><a>평점: </a></div>
+                                <form action='write_review.php' method='post'>
+                                <select class='select' style='margin-top: 18px;' name='review'>
+                                <option value='5'>5</option>
+                                <option value='5'>4</option>
+                                <option value='5'>3</option>
+                                <option value='5'>2</option>
+                                <option value='5'>1</option> </select>
+                                <button type='submit' class='selectButt'>등록</button></form>
+                                <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
+                            }
                         }
                     }
                     else{
