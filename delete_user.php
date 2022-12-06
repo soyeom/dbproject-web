@@ -8,7 +8,8 @@
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        echo "<script>location.replace('main.php');</script>";
+        echo "<script> alert('회원 탈퇴 완료');
+        location.replace('main.php');</script>";
         mysqli_close($conn);
     }
     session_destroy();

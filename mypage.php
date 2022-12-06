@@ -19,27 +19,6 @@
             $result = mysqli_query($conn, $sql);
             $res = mysqli_fetch_array($result);
         ?>
-        <script>
-            function check_pw() {
-                var id = document.getElementById("id").innerHTML;
-                var url = "check_pw.php?id=" + id;
-                window.open(url, "chkpw", 'width=500,height=800, scrollbars=no, resizable=no');
-            }
-            function change_pw() {
-                document.getElementById("pw").disabled = false;
-                document.getElementById("pw_button").value = "확정";
-                document.getElementById("pw_button").style.color = "hotpink";
-                document.getElementById("pw_button").setAttribute("onclick", "decide_pw()");
-            }
-            function decide_pw() {
-                document.getElementById("submit").disabled = false;
-                document.getElementById("pw2").value = document.getElementById("pw").value;
-                document.getElementById("pw").disabled = true;
-                document.getElementById("pw_button").disabled = true;
-                document.getElementById("pw_button").value = "확정됨";
-                document.getElementById("pw_button").style.color = "#ccc";
-            }
-        </script>
     </head>
     <body>
         <div id="wrap">
@@ -67,11 +46,7 @@
                                 <h3 class="join_title">
                                     <label for="password">비밀번호</label>
                                 </h3>
-                                <span class="id_box int_pass">
-                                    <input type="password" name=pw id=pw disabled placeholder="필수 입력 사항입니다." value="<?=$res['비밀번호']?>">
-                                    <input type=button id=pw_button value="변경" onclick="check_pw();">
-                                </span>
-                                <input type="hidden" name=pw2 id=pw2 value="<?=$res['비밀번호']?>">
+                                <span><a href="#">변경하기</a></span>
                                 
                                 <h3 class="join_title">
                                     <label for="age">나이</label>
