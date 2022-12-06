@@ -103,6 +103,7 @@
                 <div class="line"></div>
                 <?php
                     if($login){
+                        $num = 0;
                         while($row_Att = mysqli_fetch_row($result_Att))
                         {
                             $sql_Review = "select 평점 from 리뷰 where 리뷰아이디 = '$id' and 리뷰여행지명 = '$row_Att[0]';";
@@ -111,14 +112,14 @@
 
                             echo("<tr class='Att'> <td> <div class='AttCrop'>
                             <img src='$row_Att[5]' class='AttImg'> </div> </td>");
-                            echo("<td> <div class='AttName'> <a href='#;' onclick='getShow(0)'>");
+                            echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
                             echo("$row_Att[0]");
                             echo("</a> </div> <div class='AttInfo'><a>");
                             echo("지역 - $row_Att[1] $row_Att[2] <br>");
                             echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
                             echo("<tr class='Att'>");
                             echo("</a> </div> </td> </tr> <td colspan='2'>
-                            <div class='TrafficArea' id='Traffic_0' style='display:none;'>
+                            <div class='TrafficArea' id='Traffic_$num' style='display:none;'>
                             <div class='AttLine'></div>");
 
                             if($row_Review){
@@ -153,6 +154,7 @@
                                 <button type='submit' class='selectButt'>등록</button></form>
                                 <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
                             }
+                            $num++;
                         }
                     }
                     else{
