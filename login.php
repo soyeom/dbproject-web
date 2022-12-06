@@ -19,7 +19,7 @@
     if ($row != null) {
         $_SESSION['id'] = $row['아이디'];
         $_SESSION['password'] = $row['비밀번호'];
-        echo "<script>location.replace('main.php');</script>";
+        echo "<script>location.replace('recommend.php');</script>";
         exit;
     }
     

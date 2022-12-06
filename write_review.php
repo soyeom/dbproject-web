@@ -5,13 +5,23 @@
     $att = $_POST['att'];
     $review = $_POST['review'];
 
-    $sql = "insert into 리뷰 (리뷰아이디, 리뷰여행지명, 평점) values ";
-    $sql = $sql."('{$id}','{$att}',$review)";
+    if(!$review){
+        $sql = "delete from 리뷰 where 리뷰아이디='$id' and 리뷰여행지명='$att'";
 
-    $result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-    if ($result) {
         echo "<script>location.replace('review.php');</script>";
         mysqli_close($conn);
     }
+    else{
+        $sql = "insert into 리뷰 (리뷰아이디, 리뷰여행지명, 평점) values ";
+        $sql = $sql."('{$id}','{$att}',$review)";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            echo "<script>location.replace('review.php');</script>";
+            mysqli_close($conn);
+        }
+}
 ?>

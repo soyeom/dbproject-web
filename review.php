@@ -10,17 +10,17 @@
         <table>
             <tr>
                 <td>
-                    <a href="main.html">
+                    <a href="recommend.php">
                         <img src="img/logo.png" id="logo" href="#">
                     </a>
                 </td>
                 <td>
                     <ul class="menu">
                         <li>
-                            <a href="main.php" id="main">Main</a>
+                            <a href="recommend.php" id="main">Main</a>
                         </li>
                         <li>
-                            <a href="recommend.php" id="recommend">Recommend</a>
+                            <a href="review.php" id="recommend">Review</a>
                         </li>
                     </ul>
                 </td>
