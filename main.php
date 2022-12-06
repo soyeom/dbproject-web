@@ -101,20 +101,24 @@
                         echo("<div class='eff'></div>
                         <a href='logout.php'>Logout</a>");
                         echo("</div></td>");
+
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='mypage.php'>My</a>");
+                        echo("</div></td>");
                     }
                     else{
                         echo("<td><div class='button'>");
                         echo("<div class='eff'></div>
                         <a href='login.html'>Login</a>");
                         echo("</div></td>");
+
+                        echo("<td><div class='button'>");
+                        echo("<div class='eff'></div>
+                        <a href='signup.html'>Sign Up</a>");
+                        echo("</div></td>");
                     }
                 ?>
-                <td>
-                    <div class="button">
-                        <div class="eff"></div>
-                        <a href="signup.html">Sign Up</a>
-                    </div>
-                </td>
             </tr>
         </table>
         <div class="box">
