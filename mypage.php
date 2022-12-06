@@ -99,7 +99,7 @@
 
                 <div class="btn_area">
                     <button type="submit" id="submit" class="btn_type btn_primary">
-                        <span>EDIT</span>
+                        <span>회원정보 수정</span>
                     </button>
                     <a href="delete_user.php" style="margin-top: 10px; display: flex; justify-content: center; align-items: center;">회원 탈퇴</a>
                 </div>
