@@ -90,16 +90,6 @@
                                         traffic.style.display = 'none';
                                     }
                                 }
-
-                                function getTrain(num) {
-                                    var train = document.getElementById('train_' + num);
-                                    if (train.style.display == 'none') {
-                                        train.style.display = 'block';
-                                    }
-                                    else {
-                                        train.style.display = 'none';
-                                    }
-                                }
                             </script>
                     </div>
                 </tr>
@@ -133,7 +123,16 @@
 
                             if($row_Review){
                                 echo("<div class='select'><a>평점: $row_Review[0]</a></div>");
-                                echo("<button type='submit' class='selectButt'>수정</button></form>
+                                echo("<form action='write_review.php' method='post'>
+                                <select class='select' style='margin-top: 18px;' name='review'>
+                                <option value='5'>5</option>
+                                <option value='4'>4</option>
+                                <option value='3'>3</option>
+                                <option value='2'>2</option>
+                                <option value='1'>1</option> </select>
+                                <input type='hidden' name='id' value='$user_id[0]'>
+                                <input type='hidden' name='att' value='$row_Att[0]'>
+                                <button type='submit' class='selectButt'>수정</button></form>
                                 <form action='delete_review.php' method='post'>
                                 <input type='hidden' name='id' value='$user_id[0]'>
                                 <input type='hidden' name='att' value='$row_Att[0]'>
@@ -145,10 +144,10 @@
                                 <form action='write_review.php' method='post'>
                                 <select class='select' style='margin-top: 18px;' name='review'>
                                 <option value='5'>5</option>
-                                <option value='5'>4</option>
-                                <option value='5'>3</option>
-                                <option value='5'>2</option>
-                                <option value='5'>1</option> </select>
+                                <option value='4'>4</option>
+                                <option value='3'>3</option>
+                                <option value='2'>2</option>
+                                <option value='1'>1</option> </select>
                                 <input type='hidden' name='id' value='$user_id[0]'>
                                 <input type='hidden' name='att' value='$row_Att[0]'>
                                 <button type='submit' class='selectButt'>등록</button></form>
