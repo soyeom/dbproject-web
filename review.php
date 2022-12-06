@@ -10,14 +10,14 @@
         <table>
             <tr>
                 <td>
-                    <a href="recommend.php">
+                    <a href="main.php">
                         <img src="img/logo.png" id="logo" href="#">
                     </a>
                 </td>
                 <td>
                     <ul class="menu">
                         <li>
-                            <a href="recommend.php" id="main">Main</a>
+                            <a href="main.php" id="main">Main</a>
                         </li>
                         <li>
                             <a href="review.php" id="recommend">Review</a>
@@ -90,16 +90,6 @@
                                         traffic.style.display = 'none';
                                     }
                                 }
-
-                                function getTrain(num) {
-                                    var train = document.getElementById('train_' + num);
-                                    if (train.style.display == 'none') {
-                                        train.style.display = 'block';
-                                    }
-                                    else {
-                                        train.style.display = 'none';
-                                    }
-                                }
                             </script>
                     </div>
                 </tr>
@@ -113,6 +103,7 @@
                 <div class="line"></div>
                 <?php
                     if($login){
+                        $num = 0;
                         while($row_Att = mysqli_fetch_row($result_Att))
                         {
                             $sql_Review = "select 평점 from 리뷰 where 리뷰아이디 = '$id' and 리뷰여행지명 = '$row_Att[0]';";
@@ -121,19 +112,28 @@
 
                             echo("<tr class='Att'> <td> <div class='AttCrop'>
                             <img src='$row_Att[5]' class='AttImg'> </div> </td>");
-                            echo("<td> <div class='AttName'> <a href='#;' onclick='getShow(0)'>");
+                            echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
                             echo("$row_Att[0]");
                             echo("</a> </div> <div class='AttInfo'><a>");
                             echo("지역 - $row_Att[1] $row_Att[2] <br>");
                             echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
                             echo("<tr class='Att'>");
                             echo("</a> </div> </td> </tr> <td colspan='2'>
-                            <div class='TrafficArea' id='Traffic_0' style='display:none;'>
+                            <div class='TrafficArea' id='Traffic_$num' style='display:none;'>
                             <div class='AttLine'></div>");
 
                             if($row_Review){
                                 echo("<div class='select'><a>평점: $row_Review[0]</a></div>");
-                                echo("<button type='submit' class='selectButt'>수정</button></form>
+                                echo("<form action='write_review.php' method='post'>
+                                <select class='select' style='margin-top: 18px;' name='review'>
+                                <option value='5'>5</option>
+                                <option value='4'>4</option>
+                                <option value='3'>3</option>
+                                <option value='2'>2</option>
+                                <option value='1'>1</option> </select>
+                                <input type='hidden' name='id' value='$user_id[0]'>
+                                <input type='hidden' name='att' value='$row_Att[0]'>
+                                <button type='submit' class='selectButt'>수정</button></form>
                                 <form action='delete_review.php' method='post'>
                                 <input type='hidden' name='id' value='$user_id[0]'>
                                 <input type='hidden' name='att' value='$row_Att[0]'>
@@ -145,15 +145,16 @@
                                 <form action='write_review.php' method='post'>
                                 <select class='select' style='margin-top: 18px;' name='review'>
                                 <option value='5'>5</option>
-                                <option value='5'>4</option>
-                                <option value='5'>3</option>
-                                <option value='5'>2</option>
-                                <option value='5'>1</option> </select>
+                                <option value='4'>4</option>
+                                <option value='3'>3</option>
+                                <option value='2'>2</option>
+                                <option value='1'>1</option> </select>
                                 <input type='hidden' name='id' value='$user_id[0]'>
                                 <input type='hidden' name='att' value='$row_Att[0]'>
                                 <button type='submit' class='selectButt'>등록</button></form>
                                 <tr> <td colspan='2'> <div class='AttLine'></div> </td> </tr>");
                             }
+                            $num++;
                         }
                     }
                     else{
