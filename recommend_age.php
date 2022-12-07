@@ -9,7 +9,7 @@
             $conn = mysqli_connect("localhost", "root", "", "test");
             
             $age = $_POST['age'];
-            $same_age = "SELECT DISTINCT 리뷰.리뷰아이디 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.나이 = $age;";
+            $same_age = "SELECT DISTINCT 리뷰.리뷰여행지명, 리뷰.평점 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.나이 = $age;";
             $result_User = mysqli_query($conn, $same_age);
 
             $sql_Att = "select * from 여행지;";
@@ -168,6 +168,11 @@
                     $num = 0;
                     while($row_Att = mysqli_fetch_row($result_Att))
                     {
+                        while($row_User = mysqli_fetch_row($result_User))
+                        {
+                            if($row_User[0]==$row_Att[0])
+                                $review_sum += $row_User[1];
+                        }
                         echo("<tr class='Att'> <td> <div class='AttCrop'>
                         <img src='$row_Att[5]' class='AttImg'> </div> </td>");
                         echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
