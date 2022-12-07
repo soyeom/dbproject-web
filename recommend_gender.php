@@ -9,10 +9,65 @@
             $conn = mysqli_connect("localhost", "root", "", "test");
 
             $gender = $_POST['gender'];
-            $same_gender = "SELECT DISTINCT 리뷰.리뷰아이디 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.성별 = '$gender';";
-            $result_User = mysqli_query($conn, $same_gender);
+            $same_gender = "SELECT 리뷰.리뷰여행지명, 리뷰.평점 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.성별 = '$gender';";
+            $result_gender = mysqli_query($conn, $same_gender);
+            if(!$result_gender) {
+                echo("<script>alert('error!')</script>");
+                exit;
+            }
+            $total_records_gender = mysqli_num_rows($result_gender);
+            $total_fields_gender = mysqli_num_fields($result_gender);
 
-            $sql_Att = "select * from 여행지;";
+            $place = array('경주월드', '광안대교', '남이섬', '롯데월드', '비발디파크', '우도', '한옥마을');
+            $rate = array(0, 0, 0, 0, 0, 0, 0);
+            $count = array(0, 0, 0, 0, 0, 0, 0);
+
+            while($row_gender = mysqli_fetch_row($result_gender)) {
+                switch ($row_gender[0]) {
+                    case $place[0]:
+                        $rate[0] += $row_gender[1];
+                        $count[0]++;
+                        break;
+                    case $place[1]:
+                        $rate[1] += $row_gender[1];
+                        $count[1]++;
+                        break;
+                    case $place[2]:
+                        $rate[2] += $row_gender[1];
+                        $count[2]++;
+                        break;
+                    case $place[3]:
+                        $rate[3] += $row_gender[1];
+                        $count[3]++;
+                        break;
+                    case $place[4]:
+                        $rate[4] += $row_gender[1];
+                        $count[4]++;
+                        break;
+                    case $place[5]:
+                        $rate[5] += $row_gender[1];
+                        $count[5]++;
+                        break;
+                    case $place[6]:
+                        $rate[6] += $row_gender[1];
+                        $count[6]++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            $rate_gender = array(0, 0, 0, 0, 0, 0, 0);
+            for ($i = 0; $i < 7; $i++) {
+                $rate_gender[$i] = $rate[$i] / $count[$i];
+            }
+
+            for ($i = 0; $i < 7; $i++) {
+                $insert_rate = "update 여행지 set 평점_성별 = $rate_gender[$i] where 여행지명 = '$place[$i]'";
+                $update_rate = mysqli_query($conn, $insert_rate);
+            }
+
+            $sql_Att = "select * from 여행지 order by 평점_성별 DESC;";
             $result_Att = mysqli_query($conn, $sql_Att);
             if (!$result_Att) {
                 echo("<script>alert('error!')</script>");
@@ -171,7 +226,7 @@
                         echo("<tr class='Att'> <td> <div class='AttCrop'>
                         <img src='$row_Att[5]' class='AttImg'> </div> </td>");
                         echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
-                        echo("$row_Att[0]");
+                        echo("$row_Att[0] (★ $row_Att[6])");
                         echo("</a> </div> <div class='AttInfo'><a>");
                         echo("지역 - $row_Att[1] $row_Att[2] <br>");
                         echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
