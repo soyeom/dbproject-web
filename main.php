@@ -104,7 +104,7 @@
 
                         echo("<td><div class='button'>");
                         echo("<div class='eff'></div>
-                        <a href='mypage.php'>My</a>");
+                        <a href='mypage.php'>My Page</a>");
                         echo("</div></td>");
                     }
                     else{
