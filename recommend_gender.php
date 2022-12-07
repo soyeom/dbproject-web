@@ -7,9 +7,13 @@
         <link href="css/recommend.css" type="text/css" rel="stylesheet">
         <?php
             $conn = mysqli_connect("localhost", "root", "", "test");
+
+            $gender = $_POST['gender'];
+            $age = $_POST['age'];
+            $mbti = $_POST['mbti'];
             
 
-            $sql_Att = "select 여행지명, 도, 시, 실내외, 계절, 이미지 from 여행지;";
+            $sql_Att = "select * from 여행지;";
             $result_Att = mysqli_query($conn, $sql_Att);
             if (!$result_Att) {
                 echo("<script>alert('error!')</script>");
