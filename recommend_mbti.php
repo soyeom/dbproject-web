@@ -8,10 +8,9 @@
         <?php
             $conn = mysqli_connect("localhost", "root", "", "test");
 
-            $gender = $_POST['gender'];
-            $age = $_POST['age'];
             $mbti = $_POST['mbti'];
-            
+            $same_mbti = "SELECT DISTINCT 리뷰.리뷰아이디 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.mbti = '$mbti';";
+            $result_User = mysqli_query($conn, $same_mbti);
 
             $sql_Att = "select * from 여행지;";
             $result_Att = mysqli_query($conn, $sql_Att);
@@ -133,12 +132,12 @@
                             <?php
                                 if($login){
                                     $id = $_SESSION['id'];
-                                    $sql_user = "select 아이디 from 회원 WHERE 아이디 = '$id';";
+                                    $sql_user = "select * from 회원 WHERE 아이디 = '$id';";
 
                                     $result_user = mysqli_query($conn, $sql_user);
-                                    $user_id = mysqli_fetch_row($result_user);
+                                    $user = mysqli_fetch_row($result_user);
 
-                                    echo("$user_id[0]");
+                                    echo("$user[0]");
                                 }
                             ?>
                             님의 여행지 추천 리스트
@@ -149,24 +148,20 @@
                     <div class="select">
                         <a>추천</a>
                     </div>
-                    <form method="post" action="recommend_gender.php">
-                        <?php
-                            echo("<input type='hidden' name='id' value=$id>
-                            <button type='submit' class='selectButt'>성별</button>");
-                        ?>
-                    </form>
-                    <form method="post" action="recommend_age.php">
-                        <?php
-                            echo("<input type='hidden' name='id' value=$id>
-                            <button type='submit' class='selectButt'>나이</button>");
-                        ?>
-                    </form>
-                    <form method="post" action="recommend_mbti.php">
-                        <?php
-                            echo("<input type='hidden' name='id' value=$id>
-                            <button type='submit' class='selectButt'>mbti</button>");
-                        ?>
-                    </form>
+                    <?php
+                        echo("<form method='post' action='recommend_gender.php'>
+                            <input type='hidden' name='gender' value='$user[4]'>
+                            <button type='submit' class='selectButt'>성별</button>
+                        </form>
+                        <form method='post' action='recommend_age.php'>
+                                <input type='hidden' name='age' value='$user[2]'>
+                                <button type='submit' class='selectButt'>나이</button>
+                        </form>
+                        <form method='post' action='recommend_mbti.php'>
+                                <input type='hidden' name='mbti' value='$user[3]'>
+                                <button type='submit' class='selectButt'>mbti</button>
+                        </form>");
+                    ?>
                 </tr>
                 <div class="line"></div>
                 <?php
