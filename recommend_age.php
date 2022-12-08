@@ -10,7 +10,15 @@
             
             $age = $_POST['age'];
             $same_age = "SELECT DISTINCT 리뷰.리뷰여행지명, 리뷰.평점 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.나이 = $age;";
-            $result_User = mysqli_query($conn, $same_age);
+            $result_age = mysqli_query($conn, $same_age);
+            
+            $total_records_User =mysqli_num_rows($result_age);
+            $total_fields_User =mysqli_num_fields($result_age);
+
+            if(!$result_age) {
+                echo("<script>alert('error!')</script>");
+                exit;
+            }
 
             $sql_Att = "select * from 여행지;";
             $result_Att = mysqli_query($conn, $sql_Att);
@@ -166,17 +174,42 @@
                 <div class="line"></div>
                 <?php
                     $num = 0;
+                    $review_sum=0;
+                    $review_count=0;
+
+                    while($row_Att = mysqli_fetch_row($result_Att))
+                    {   
+                        $attName = $row_Att[0];
+
+                        while($row_User= mysqli_fetch_row($result_age))
+                        {
+                            for($i=0; $i < $total_fields_User/$total_records_User; $i++)
+                            {
+                                if($attName == $row_User[0])
+                                {
+                                    $review_sum += $row_User[1];
+                                    $review_count++;
+                                }
+                                $review_avg = $review_sum / $review_count;
+                            }
+                        }
+                        $insert_rate = "update 여행지 set 평점 = $review_avg where 여행지명 = '$attName'";
+                        $update_rate = mysqli_query($conn, $insert_rate);
+                    }
+
+                    $sql_Att = "select * from 여행지 order by 평점 DESC;";
+                    $result_Att = mysqli_query($conn, $sql_Att);
+                    if (!$result_Att) {
+                        echo("<script>alert('error!')</script>");
+                        exit;
+                    }
+
                     while($row_Att = mysqli_fetch_row($result_Att))
                     {
-                        while($row_User = mysqli_fetch_row($result_User))
-                        {
-                            if($row_User[0]==$row_Att[0])
-                                $review_sum += $row_User[1];
-                        }
                         echo("<tr class='Att'> <td> <div class='AttCrop'>
                         <img src='$row_Att[5]' class='AttImg'> </div> </td>");
                         echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
-                        echo("$row_Att[0]");
+                        echo("$row_Att[0] (★ $row_Att[6])");
                         echo("</a> </div> <div class='AttInfo'><a>");
                         echo("지역 - $row_Att[1] $row_Att[2] <br>");
                         echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
