@@ -9,13 +9,13 @@
             $conn = mysqli_connect("localhost", "root", "", "test");
 
             $mbti = $_POST['mbti'];
-            $same_mbti = "SELECT DISTINCT 리뷰.리뷰아이디 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.mbti = '$mbti';";
+            $same_mbti = "SELECT 리뷰.리뷰여행지명, 리뷰.평점 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.mbti = '$mbti';";
             $result_mbti = mysqli_query($conn, $same_mbti);
-
             if(!$result_mbti) {
                 echo("<script>alert('error!')</script>");
                 exit;
             }
+
             $total_records_mbti = mysqli_num_rows($result_mbti);
             $total_fields_mbti = mysqli_num_fields($result_mbti);
 
