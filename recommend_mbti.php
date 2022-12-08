@@ -10,9 +10,65 @@
 
             $mbti = $_POST['mbti'];
             $same_mbti = "SELECT DISTINCT 리뷰.리뷰아이디 FROM 리뷰 JOIN 회원 ON 리뷰.리뷰아이디 = 회원.아이디 WHERE 회원.mbti = '$mbti';";
-            $result_User = mysqli_query($conn, $same_mbti);
+            $result_mbti = mysqli_query($conn, $same_mbti);
 
-            $sql_Att = "select * from 여행지;";
+            if(!$result_mbti) {
+                echo("<script>alert('error!')</script>");
+                exit;
+            }
+            $total_records_mbti = mysqli_num_rows($result_mbti);
+            $total_fields_mbti = mysqli_num_fields($result_mbti);
+
+            $place = array('경주월드', '광안대교', '남이섬', '롯데월드', '비발디파크', '우도', '한옥마을');
+            $rate = array(0, 0, 0, 0, 0, 0, 0);
+            $count = array(0, 0, 0, 0, 0, 0, 0);
+
+            while($row_mbti = mysqli_fetch_row($result_mbti)) {
+                switch ($row_mbti[0]) {
+                    case $place[0]:
+                        $rate[0] += $row_mbti[1];
+                        $count[0]++;
+                        break;
+                    case $place[1]:
+                        $rate[1] += $row_mbti[1];
+                        $count[1]++;
+                        break;
+                    case $place[2]:
+                        $rate[2] += $row_mbti[1];
+                        $count[2]++;
+                        break;
+                    case $place[3]:
+                        $rate[3] += $row_mbti[1];
+                        $count[3]++;
+                        break;
+                    case $place[4]:
+                        $rate[4] += $row_mbti[1];
+                        $count[4]++;
+                        break;
+                    case $place[5]:
+                        $rate[5] += $row_mbti[1];
+                        $count[5]++;
+                        break;
+                    case $place[6]:
+                        $rate[6] += $row_mbti[1];
+                        $count[6]++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            $rate_mbti = array(0, 0, 0, 0, 0, 0, 0);
+            for ($i = 0; $i < 7; $i++) {
+                $rate_mbti[$i] = $rate[$i] / $count[$i];
+            }
+
+            for ($i = 0; $i < 7; $i++) {
+                $insert_rate = "update 여행지 set 평점 = $rate_mbti[$i] where 여행지명 = '$place[$i]'";
+                $update_rate = mysqli_query($conn, $insert_rate);
+            }
+
+            $sql_Att = "select * from 여행지 order by 평점 DESC;";
             $result_Att = mysqli_query($conn, $sql_Att);
             if (!$result_Att) {
                 echo("<script>alert('error!')</script>");

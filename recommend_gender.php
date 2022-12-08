@@ -63,11 +63,11 @@
             }
 
             for ($i = 0; $i < 7; $i++) {
-                $insert_rate = "update 여행지 set 평점_성별 = $rate_gender[$i] where 여행지명 = '$place[$i]'";
+                $insert_rate = "update 여행지 set 평점 = $rate_gender[$i] where 여행지명 = '$place[$i]'";
                 $update_rate = mysqli_query($conn, $insert_rate);
             }
 
-            $sql_Att = "select * from 여행지 order by 평점_성별 DESC;";
+            $sql_Att = "select * from 여행지 order by 평점 DESC;";
             $result_Att = mysqli_query($conn, $sql_Att);
             if (!$result_Att) {
                 echo("<script>alert('error!')</script>");
