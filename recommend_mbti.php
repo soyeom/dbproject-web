@@ -163,7 +163,7 @@
 
                         echo("<td><div class='button'>");
                         echo("<div class='eff'></div>
-                        <a href='mypage.php'>My</a>");
+                        <a href='mypage.php'>My Page</a>");
                         echo("</div></td>");
                     }
                     else{
@@ -196,7 +196,7 @@
                                     echo("$user[0]");
                                 }
                             ?>
-                            님의 여행지 추천 리스트
+                            님과 같은 MBTI의 여행지 추천 리스트
                         </a>
                     </div>
                 </tr>
@@ -227,7 +227,7 @@
                         echo("<tr class='Att'> <td> <div class='AttCrop'>
                         <img src='$row_Att[5]' class='AttImg'> </div> </td>");
                         echo("<td> <div class='AttName'> <a href='#;' onclick='getShow($num)'>");
-                        echo("$row_Att[0]");
+                        echo("$row_Att[0] (★ $row_Att[6])");
                         echo("</a> </div> <div class='AttInfo'><a>");
                         echo("지역 - $row_Att[1] $row_Att[2] <br>");
                         echo("$row_Att[3] | 추천 계절 - $row_Att[4]");
